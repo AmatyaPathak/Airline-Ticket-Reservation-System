@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} BoardingFast Sign Up {% endblock %}
+
+{% block content %}
+	<h1>Sign up for BoardingFast:</h1>
+	<form method='POST'>
+		<h5 align='center'>First, choose your user type </h5>
+        <a href = '/customersignup'>
+		<button id='usertype' type="customer", class="btn btn-primary", style = "clear:both; text-align:center; margin-right: 25px;">Customer</button>
+        </a>
+        <button id='usertype' type="bookingagent", class="btn btn-primary", style = "text-align:center; margin-right: 25px;">Booking Agent</button>
+        <button id='usertype' type="airlinestaff", class="btn btn-primary", style = "text-align:center; margin-right: 25px;">Airline Staff</button>
+    </form>
+{% endblock %}

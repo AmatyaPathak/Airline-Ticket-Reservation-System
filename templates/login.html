@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} BoardingFast Login {% endblock %}
+
+{% block content %}
+	<h1>Login to BoardingFast:</h1>
+	<form method='POST'>
+		<h5 align='center'>Enter your credentials to log in</h5>
+
+		<div class="form-group">
+			<input type="email", class="form-control", id="email", name="email" placeholder="Email Address" </input>
+  	</div>
+
+		<div class="form-group">
+			<input type="password", class="form-control", id="password1", name="password1" placeholder="Password" </input>
+		<button type="submit", class="btn btn-primary", style = "clear:both; float:left;">Log In</button>
+{% endblock %}

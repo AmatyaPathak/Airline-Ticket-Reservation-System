@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} BoardingFast {% endblock %}
+
+{% block content %}
+	<h1>Welcome to BoardingFast</h1>
+	<h2>Airline Staff Portal</h2>
+	<div class="form-group">
+		<form action="/flightSearch" method="POST">
+				<input type="text" name="origin" id="origin">
+				<input type="text" name="destination" id="destination">
+				<input type="datetime" name="when" id="when">
+				<input type="submit" value="Search">
+		</form>
+  </div> 
+	{% for AirlineStaff in AirlineStaffs %}
+		<tr>
+			<td>{{ AirlineStaff.plane.id }}</td>
+			<td>{{ AirlineStaff.flight.airline }}</td>
+			<td>{{ AirlineStaff.flight.capacity }}</td>
+		</tr>
+		{% if search = "True" %}
+			<td>
+				<a href="/purchase/{{task.id}}">Delete</a>
+				<br>
+				<a href="/update/{{task.id}}">Update</a>
+			</td>
+		{% endif %}
+	{% endfor %}
+
+	<div class="form-group">
+		<form action="/flightSearch" method="POST">
+            <input type="text" name="airline" id="airline">
+            <input type="text" name="airlineid" id="airlineid">
+            <input type="int" name="capacity" id="capacity">
+            <input type="submit" value="Search">
+    </form>
+  </div>
+{% endblock %}

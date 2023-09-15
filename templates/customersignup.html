@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} BoardingFast Sign Up {% endblock %}
+
+{% block content %}
+	<h1>Sign up for BoardingFast:</h1>
+	<form method='POST'>
+		<h5 align='center'>Enter your credentials to create an account</h5>
+
+		<div class="form-group">
+			<input type="text", class="form-control", id="fullname", name="fullname" placeholder="Full Name" </input>
+  	</div>
+
+		<div class="form-group">
+			<input type="email", class="form-control", id="email", name="email" placeholder="Email Address" </input>
+  	</div>
+
+		<div class="form-group">
+			<input type="password", class="form-control", id="password1", name="password1" placeholder="Password" </input>
+  	</div>
+
+		<div class="form-group">
+			<input type="password", class="form-control", id="password2", name="password2" placeholder="Confirm Password" </input>
+
+		<button type="submit", class="btn btn-primary", style = "clear:both; float:left;">Create Account</button>
+{% endblock %}

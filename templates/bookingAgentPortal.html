@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} BoardingFast {% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Booking Agent Portal</h1>
+    
+    <table>
+        <tr>
+            <th>Flights</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Price</th>
+        </tr>
+        {% for flight in flights %}
+            <tr>
+                <td>{{ flight.origin }}</td>
+                <td>{{ flight.destination }}</td>
+                <td>{{ flight.departure_time }}</td>
+                <td>{{ flight.arrival_time }}</td>
+                <td>{{ flight.price}}</td>
+                {% if searched = "True" %}
+                <td>
+                    <a href="/purchase/{{flight.id}}">purchase</a>
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    <div class="form">
+        <form action="/flightSearch" method="POST">
+            <input type="text" name="origin" id="origin">
+            <input type="text" name="destination" id="destination">
+            <input type="datetime" name="when" id="when">
+            <input type="submit" value="Search">
+        </form>
+    </div> 
+<h2>Total Spending: {{% t|sum(attribute='price') %}}</h2>
+</div>
+{% endblock %}
